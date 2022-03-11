@@ -1,0 +1,25 @@
+string res, tmp;
+        int i = 0, j, len = s.size();
+        while (true) {
+            // advancing i and j indexes around the next word
+            while (i < len && s[i] == ' ') i++;
+            // exit condition - we are done in case
+            if (i >= len) break;
+            cout<<"i "<<i<<endl;
+            j = i;
+            while (j < len && s[j] != ' ') tmp += s[j],j++;
+            cout<<"temp "<<tmp<<endl;
+            if(res!="")
+            {
+                res = tmp + " "+res;
+            }
+            else{
+                res=tmp;
+            }
+             tmp="";
+            cout<<"j "<<j<<endl;
+            // moving to the next word
+            i = j;
+        }
+        return res;
+        TC O(N) SC O(1)
