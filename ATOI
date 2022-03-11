@@ -1,0 +1,29 @@
+int myAtoi(string str) {
+        int i=0,n=str.length();
+    while(str[i]==' ')//removing all the white space from given string 
+        i++;
+    int flag=0;// To check weather the integer is positive or negitive 
+    long long int a=0;//To over come the overflow problem if you use int it may overflow 
+    if(str[i]=='-')
+    {
+        flag=1;
+        i++;
+    }
+    if(str[i]=='+' && flag==0)//To overcome test case like '+42'
+        i++;
+    
+   while(i<n && str[i]>='0' && str[i]<='9')
+   {
+       a=a*10+(str[i]-'0');//convertion from char to interger 
+       if(a>INT_MAX && flag==0)//check whether a is greater then INTMAX(2^31-1);
+            return INT_MAX;
+       if(-a<INT_MIN && flag==1)//check for INTMIN(-2^31);
+            return INT_MIN;
+		i++;
+   }
+    
+    if(flag==1)
+        return -a;
+    return a;
+    }
+    TC O(N) SC O(1)
