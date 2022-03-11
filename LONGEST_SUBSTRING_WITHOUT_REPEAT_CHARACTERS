@@ -1,0 +1,18 @@
+ int lengthOfLongestSubstring(string s) {
+      unordered_map<char,int> st;
+    int count=0;
+    int i=0,j=0;
+    int n = s.size();
+    while(j<n)
+    {
+        
+           if(st.find(s[j])!=st.end() && st[s[j]]>=i)
+           {
+               i=st[s[j]]+1;
+           }
+    st[s[j]]=j;
+    count=max(count,j-i+1);
+    j++;
+    }
+    return count;
+    // TC O(N) SC O(N)
