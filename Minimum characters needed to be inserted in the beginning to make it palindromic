@@ -1,0 +1,34 @@
+
+int Solution::solve(string A) {
+    int org=A.length();
+    string b = A;
+    reverse(b.begin(),b.end());
+    A = A+"$"+b;
+    int n = A.size();
+    int lps[n];
+    lps[0]=0;
+    int i=1;
+    int len=0;
+    while(i<n)
+    {
+        if(A[len]==A[n])         // lps array tell us about the suffix of revsese string that matches with prefix of original string 
+        {
+            len++;
+            lps[i]=len;
+            i++;
+        }
+        else{
+            if(len!=0)
+            {
+                len= lps[len-1];
+            }
+            else{
+                len=0;
+                lps[i]=0;
+                i++;
+            }
+        }
+    }
+return org-lps[n-1];
+
+}
