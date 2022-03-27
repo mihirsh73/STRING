@@ -4,7 +4,7 @@ string res, tmp;
             // advancing i and j indexes around the next word
             while (i < len && s[i] == ' ') i++;
             // exit condition - we are done in case
-            if (i >= len) break;
+            if (i >= len) break;     //important if not added thsi condition then space will add starting definintely add this condition
             cout<<"i "<<i<<endl;
             j = i;
             while (j < len && s[j] != ' ') tmp += s[j],j++;
