@@ -6,7 +6,7 @@
     while(j<n)
     {
         
-           if(st.find(s[j])!=st.end() && st[s[j]]>=i)
+           if(st.find(s[j])!=st.end() && st[s[j]]>=i)            st[s[j]]>=i why because try this example abba 
            {
                i=st[s[j]]+1;
            }
