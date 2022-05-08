@@ -18,7 +18,10 @@ public:
         return ans;
     }
 };
- TC O(1) for number till 3999 and for big number O(N)
- Expected Time Complexity: O(log10N)   gfg
-Expected Auxiliary Space: O(log10N * 10)
+Time Complexity
+We are scanning each digit of the number one by one therefore, the time complexity will be O(log10n).
+But n cannot be grater than 3999, therefore, the maximum time can be O(log103999) ~= O(3.60) which is constant hence the overall time complexity will be O(1).
+
+Space Complexity
+We are using four arrays whose sizes don’t depend on the input size hence the space complexity will be O(1).
  
