@@ -29,3 +29,9 @@ public:
         return s;
     }
 };
+////////////////////////
+O(2 ^ N), where N is the number of iterations.
+
+ 
+
+After each iteration, the size of the sequence is becoming approximately double.
