@@ -19,3 +19,6 @@ public:
     }
 };
  TC O(1) for number till 3999 and for big number O(N)
+ Expected Time Complexity: O(log10N)   gfg
+Expected Auxiliary Space: O(log10N * 10)
+ 
