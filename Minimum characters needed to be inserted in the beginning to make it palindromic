@@ -1,4 +1,11 @@
-
+Naive approach: Start checking the string each time if it is a palindrome and if not,
+then delete the last character and check again. 
+When the string gets reduced to wither a palindrome or empty then the number of characters deleted from the end 
+till now will be the answer as those characters could have been inserted at the beginning of the original string 
+in the order which will  make the string a palindrome.
+TC O(N^2)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                              OPTIMAL APPROACH
 int Solution::solve(string A) {
     int org=A.length();
     string b = A;
@@ -32,3 +39,8 @@ int Solution::solve(string A) {
 return org-lps[n-1];
 
 }
+Here we are only interested in the last value of this lps 
+array because it shows us the largest suffix of the reversed string that 
+matches the prefix of the original string i.e these many characters already
+satisfy the palindrome property. Finally minimum number of character needed to make the 
+string a palindrome is length of the input string minus last entry of our lps array.
