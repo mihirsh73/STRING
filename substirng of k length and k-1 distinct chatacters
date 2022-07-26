@@ -1,0 +1,43 @@
+ int kmost(string s, int k, int size)
+    {
+        int res=0;
+        int mp[26]={0};
+        int count=0;
+        int j=0;
+        for(int i=0; i<size; i++)
+        {
+            if(mp[s[i]-'a']==0)
+            {
+                count++;
+            }
+            
+        mp[s[i]-'a']++;
+        }
+        if(count==k)
+        {
+            res++;
+        }
+        for(int i=size; i<s.size(); i++)     // TC O(N) SC O(1)
+        {
+            if(mp[s[i]-'a']==0)
+            {
+                count++;
+            }
+            mp[s[i]-'a']++;;
+            mp[s[j]-'a']--;
+            if(mp[s[j]-'a']==0)
+            {
+                count--;
+            }
+            j++;
+            if(count==k)
+            {
+                res++;
+            }
+        }
+        return res;
+        
+    }
+    int countOfSubstrings(string S, int K) {
+       return kmost(S,K-1,K);
+    }
