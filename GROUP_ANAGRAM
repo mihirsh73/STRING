@@ -1,0 +1,52 @@
+class Solution {
+public:
+    string helper(string s)
+    {
+        string key="";
+        int arr[26]={0};
+        for(int i=0; i<s.size(); i++)
+        {
+            arr[s[i]-'a']++;
+        }
+        for(int i=0; i<26; i++)
+        {
+           int n = arr[i];
+            while(n--)
+            {
+                key += i+'a';
+            }
+        }
+        return key;
+        
+    }
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+//         vector<vector<string>> result;
+//         unordered_map<string, vector<string>> mp;  // TC O(N*M*(LOG(M)));
+//         for(int i=0; i<strs.size(); i++)
+//         {
+//             string t= strs[i];
+//             sort(t.begin(),t.end()); // making the string a key
+//             mp[t].push_back(strs[i]);
+            
+//         }
+//         for(auto x: mp)
+//         {
+//             result.push_back(x.second);
+//         }
+//         return result;
+        vector<vector<string>> result;
+        unordered_map<string, vector<string>> mp;
+        for(int i=0; i<strs.size(); i++)
+        {
+            string t= helper(strs[i]);          // TC O(N*M)
+            mp[t].push_back(strs[i]);
+        }
+        for(auto x: mp)
+        {
+            result.push_back(x.second);
+        }
+        return result;
+        
+        
+    }
+};
