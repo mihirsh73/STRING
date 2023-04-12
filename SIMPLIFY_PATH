@@ -1,0 +1,48 @@
+https://leetcode.com/problems/simplify-path/
+1-path start with / and does not end with /
+2-".."  out of the directory or pop the element form the stack
+class Solution {
+public:
+    string simplifyPath(string path) {
+        string ans="";
+        stack<string> st;
+        int i=0;
+        while(i<path.size())
+        {
+            if(path[i]=='/')
+            {
+                i++;
+                continue;
+            }
+            string temp;
+            while(i<path.size() && path[i]!='/')
+            {
+                  temp += path[i];
+                  i++;
+            }
+            if(temp==".")continue;
+            else if(temp==".."){
+                if(!st.empty())
+                    st.pop();
+            }
+            else{
+                  st.push(temp);
+            }
+        }
+        while(st.empty()==false)
+        {
+            ans = "/"+ st.top()+ans;
+            st.pop();
+        }
+        if(ans=="")
+        {
+            return "/";
+        }
+        return ans;
+        
+        
+        
+    }
+};
+TC O(N);
+SC O(1);
